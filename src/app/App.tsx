@@ -73,13 +73,13 @@ export default function App() {
   const whatsappUrl = "https://wa.me/1234567890?text=Hola!%20Me%20gustar%C3%ADa%20conocer%20m%C3%A1s%20sobre%20sus%20productos.";
 
   return (
-    <div className="min-h-screen bg-neutral-50">
+    <div className="min-h-screen bg-rosasuave">
       {/* Navigation */}
-      <nav className="sticky top-0 z-40 border-b bg-white/90 backdrop-blur-sm shadow-sm">
+      <nav className="sticky top-0 z-40 border-b bg-rosasuave/90 backdrop-blur-sm shadow-sm">
         <div className="container mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
           <div className="flex items-center gap-2">
-            <Flower2 className="h-6 w-6 text-emerald-600" />
-            <span className="font-semibold text-neutral-800">Flores Artesanales</span>
+            <Flower2 className="h-6 w-6 text-rosaoscuro" />
+            <span className="font-semibold text-rosaoscuro">Flores Artesanales</span>
           </div>
 
           {/* Desktop nav */}
@@ -88,7 +88,7 @@ export default function App() {
               <a
                 key={link.href}
                 href={link.href}
-                className="text-neutral-600 transition-colors hover:text-emerald-600"
+                className="text-neutral-600 transition-colors hover:text-rosaoscuro"
               >
                 {link.label}
               </a>
@@ -97,7 +97,7 @@ export default function App() {
               href={whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-lg bg-emerald-600 px-4 py-2 text-sm text-white transition-colors hover:bg-emerald-700"
+              className="inline-flex items-center gap-2 rounded-lg bg-red-500 px-4 py-2 text-sm text-white transition-colors hover:bg-rose-500 hover:text-white"
             >
               <MessageCircle className="h-4 w-4" />
               Hacer pedido
@@ -106,7 +106,7 @@ export default function App() {
 
           {/* Mobile menu button */}
           <button
-            className="rounded-md p-2 text-neutral-600 hover:bg-neutral-100 md:hidden"
+            className="rounded-md p-2 text-neutral-600 hover:bg-rosasuave md:hidden"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
             {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -115,13 +115,13 @@ export default function App() {
 
         {/* Mobile menu */}
         {mobileMenuOpen && (
-          <div className="border-t bg-white px-6 py-4 md:hidden">
+          <div className="border-t bg-rosasuave px-6 py-4 md:hidden">
             <div className="flex flex-col gap-4">
               {navLinks.map((link) => (
                 <a
                   key={link.href}
                   href={link.href}
-                  className="text-neutral-700 transition-colors hover:text-emerald-600"
+                  className="text-neutral-700 transition-colors hover:text-rosaoscuro"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   {link.label}
@@ -131,7 +131,7 @@ export default function App() {
                 href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 rounded-lg bg-emerald-600 px-4 py-2 text-sm text-white"
+                className="inline-flex items-center justify-center gap-2 rounded-lg bg-red-500 px-4 py-2 text-sm text-white"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 <MessageCircle className="h-4 w-4" />
@@ -146,19 +146,19 @@ export default function App() {
       <Hero />
 
       {/* Stats bar */}
-      <div className="border-y bg-white py-6">
+      <div className="border-y bg-rosasuave py-6">
         <div className="container mx-auto max-w-7xl px-6">
           <div className="grid grid-cols-3 gap-4 text-center">
             <div>
-              <p className="text-2xl font-semibold text-emerald-700">+200</p>
+              <p className="text-2xl font-semibold text-rosa-oscuro">+200</p>
               <p className="text-sm text-neutral-500">Clientes felices</p>
             </div>
             <div>
-              <p className="text-2xl font-semibold text-emerald-700">6</p>
+              <p className="text-2xl font-semibold text-rosa-oscuro">6</p>
               <p className="text-sm text-neutral-500">Tipos de materiales</p>
             </div>
             <div>
-              <p className="text-2xl font-semibold text-emerald-700">100%</p>
+              <p className="text-2xl font-semibold text-rosa-oscuro">100%</p>
               <p className="text-sm text-neutral-500">Hecho a mano</p>
             </div>
           </div>
@@ -169,10 +169,10 @@ export default function App() {
       <section id="catalogo" className="py-16 md:py-24">
         <div className="container mx-auto max-w-7xl px-6">
           <div className="mb-12 text-center">
-            <p className="mb-2 text-sm text-emerald-600 uppercase tracking-widest">
+            <p className="mb-2 text-sm text-rosaoscuro uppercase tracking-widest">
               Nuestros productos
             </p>
-            <h2 className="mb-3">Catálogo de Flores</h2>
+            <h2 className="mb-3 text-rosaoscuro">Catálogo de Flores</h2>
             <p className="text-neutral-600">
               Cada pieza es única y elaborada con materiales de la más alta calidad.
               Haz clic en "Consultar" para preguntar disponibilidad o pedir la tuya.
@@ -187,7 +187,7 @@ export default function App() {
 
           <p className="mt-8 text-center text-sm text-neutral-500">
             ¿No encuentras lo que buscas?{" "}
-            <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="text-emerald-600 hover:underline">
+            <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="text-rosaoscuro font-semibold hover:underline">
               Contáctanos para un diseño personalizado
             </a>
           </p>
@@ -195,14 +195,14 @@ export default function App() {
       </section>
 
       {/* About Section */}
-      <section id="nosotros" className="bg-white py-16 md:py-24">
+      <section id="nosotros" className="bg-rosasuave py-16 md:py-24">
         <div className="container mx-auto max-w-7xl px-6">
           <div className="grid gap-12 md:grid-cols-2 md:items-center">
             <div>
-              <p className="mb-2 text-sm text-emerald-600 uppercase tracking-widest">
+              <p className="mb-2 text-sm text-rosaoscuro uppercase tracking-widest">
                 Nuestra historia
               </p>
-              <h2 className="mb-4">Un emprendimiento hecho con pasión</h2>
+              <h2 className="mb-4 text-rosaoscuro">Un emprendimiento hecho con pasión</h2>
               <p className="mb-4 text-neutral-600">
                 Flores Artesanales nació del amor por la creatividad y el deseo de
                 ofrecer regalos que no se marchiten. Cada flor es elaborada a mano,
@@ -218,33 +218,33 @@ export default function App() {
 
               <div className="flex flex-col gap-4">
                 <div className="flex items-start gap-3">
-                  <div className="rounded-full bg-emerald-100 p-2">
-                    <Heart className="h-5 w-5 text-emerald-600" />
+                  <div className="rounded-full bg-rosaclaro p-2">
+                    <Heart className="h-5 w-5 text-rosaoscuro" />
                   </div>
                   <div>
-                    <p className="font-semibold text-neutral-800">Hecho con amor</p>
+                    <p className="font-semibold text-rosaoscuro">Hecho con amor</p>
                     <p className="text-sm text-neutral-600">
                       Cada flor lleva horas de trabajo y dedicación artesanal.
                     </p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
-                  <div className="rounded-full bg-emerald-100 p-2">
-                    <Sparkles className="h-5 w-5 text-emerald-600" />
+                  <div className="rounded-full bg-rosaclaro p-2">
+                    <Sparkles className="h-5 w-5 text-rosaoscuro" />
                   </div>
                   <div>
-                    <p className="font-semibold text-neutral-800">Diseños únicos</p>
+                    <p className="font-semibold text-rosaoscuro">Diseños únicos</p>
                     <p className="text-sm text-neutral-600">
                       Aceptamos pedidos personalizados con colores y materiales a tu elección.
                     </p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
-                  <div className="rounded-full bg-emerald-100 p-2">
-                    <Package className="h-5 w-5 text-emerald-600" />
+                  <div className="rounded-full bg-rosaclaro p-2">
+                    <Package className="h-5 w-5 text-rosaoscuro" />
                   </div>
                   <div>
-                    <p className="font-semibold text-neutral-800">Envíos seguros</p>
+                    <p className="font-semibold text-rosaoscuro">Envíos seguros</p>
                     <p className="text-sm text-neutral-600">
                       Empacamos con cuidado para que llegue en perfecto estado a donde estés.
                     </p>
@@ -292,12 +292,12 @@ export default function App() {
       </section>
 
       {/* Contact Section */}
-      <section id="contacto" className="bg-emerald-50 py-16 md:py-24">
+      <section id="contacto" className="bg-rosasuave py-16 md:py-24">
         <div className="container mx-auto max-w-4xl px-6 text-center">
-          <p className="mb-2 text-sm text-emerald-600 uppercase tracking-widest">
+          <p className="mb-2 text-sm text-rosaoscuro uppercase tracking-widest">
             Hablemos
           </p>
-          <h2 className="mb-4">¿Lista/o para hacer tu pedido?</h2>
+          <h2 className="mb-4 text-rosaoscuro">¿Lista/o para hacer tu pedido?</h2>
           <p className="mb-8 text-neutral-600">
             Contáctanos por WhatsApp o correo electrónico y te ayudamos a elegir
             la flor perfecta. También aceptamos pedidos personalizados para eventos
@@ -309,14 +309,14 @@ export default function App() {
               href={whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-lg bg-emerald-600 px-6 py-3 text-white shadow-md transition-all hover:bg-emerald-700 hover:shadow-lg"
+              className="inline-flex items-center gap-2 rounded-lg bg-green-500 px-6 py-3 text-white shadow-md transition-all hover:bg-green-600 hover:shadow-lg"
             >
               <MessageCircle className="h-5 w-5" />
               Escribir por WhatsApp
             </a>
             <a
               href="mailto:info@floresartesanales.com"
-              className="inline-flex items-center gap-2 rounded-lg border-2 border-emerald-600 bg-white px-6 py-3 text-emerald-600 transition-colors hover:bg-emerald-50"
+              className="inline-flex items-center gap-2 rounded-lg border-2 border-rosaoscuro bg-white px-6 py-3 text-rosaoscuro transition-colors hover:bg-rosaclaro"
             >
               <Mail className="h-5 w-5" />
               Enviar un correo
@@ -325,7 +325,7 @@ export default function App() {
               href="https://instagram.com/floresartesanales"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-lg border-2 border-neutral-300 bg-white px-6 py-3 text-neutral-700 transition-colors hover:border-emerald-300 hover:bg-emerald-50"
+              className="inline-flex items-center gap-2 rounded-lg border-2 border-neutral-300 bg-white px-6 py-3 text-neutral-700 transition-colors hover:border-rosaoscuro hover:bg-rosaclaro"
             >
               <Instagram className="h-5 w-5" />
               Instagram
@@ -335,18 +335,18 @@ export default function App() {
       </section>
 
       {/* Footer */}
-      <footer className="border-t bg-white py-8">
+      <footer className="border-t bg-rosasuave py-8">
         <div className="container mx-auto max-w-7xl px-6">
           <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
             <div className="flex items-center gap-2">
-              <Flower2 className="h-5 w-5 text-emerald-600" />
-              <span className="font-semibold text-neutral-800">Flores Artesanales</span>
+              <Flower2 className="h-5 w-5 text-rosaoscuro" />
+              <span className="font-semibold text-rosaoscuro">Flores Artesanales</span>
             </div>
             <p className="text-sm text-neutral-500">
               © 2026 Flores Artesanales. Todos los derechos reservados.
             </p>
             <div className="flex gap-4">
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-neutral-400 hover:text-emerald-600 transition-colors">
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-neutral-400 hover:text-rosaoscuro transition-colors">
                 <Instagram className="h-5 w-5" />
               </a>
               <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="text-neutral-400 hover:text-emerald-600 transition-colors">
