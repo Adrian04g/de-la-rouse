@@ -1,27 +1,61 @@
 import { Hero } from "./components/Hero";
 import { FlowerCard } from "./components/FlowerCard";
+import { AboutView } from "./components/AboutView";
 import {
   Flower2,
   Mail,
   MessageCircle,
   Instagram,
-  Heart,
-  Sparkles,
-  Package,
   Menu,
   X,
 } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+
+import f1 from '../../img/f1.jpeg';
+import f2 from '../../img/f2.jpeg';
+import f3 from '../../img/f3.jpeg';
+import f4 from '../../img/f4.jpeg';
+import f5 from '../../img/f5.jpeg';
+import f6 from '../../img/f6.jpeg';
+
+type View = "home" | "nosotros";
+
+function getViewFromLocation(): View {
+  return new URLSearchParams(window.location.search).get("vista") === "nosotros"
+    ? "nosotros"
+    : "home";
+}
 
 export default function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [view, setView] = useState<View>(() => getViewFromLocation());
+
+  useEffect(() => {
+    const handlePopState = () => {
+      setView(getViewFromLocation());
+    };
+
+    window.addEventListener("popstate", handlePopState);
+    return () => window.removeEventListener("popstate", handlePopState);
+  }, []);
+
+  const navigateTo = (nextView: View) => {
+    const nextUrl = nextView === "nosotros" ? "/?vista=nosotros" : "/";
+    window.history.pushState({}, "", nextUrl);
+    setView(nextView);
+    setMobileMenuOpen(false);
+  };
+
+  if (view === "nosotros") {
+    return <AboutView onGoHome={() => navigateTo("home")} />;
+  }
 
   const flowers = [
     {
       id: 1,
       title: "Rosas de Papel",
       material: "Papel crepé y alambre",
-      image: "https://images.unsplash.com/photo-1665953495580-c9a5a2a1759d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxoYW5kbWFkZSUyMHBhcGVyJTIwZmxvd2VycyUyMGNyYWZ0c3xlbnwxfHx8fDE3NzMwODEwNzZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      image: f1,
       price: "$45",
       badge: "Más vendido",
     },
@@ -29,14 +63,14 @@ export default function App() {
       id: 2,
       title: "Lirios de Tela",
       material: "Seda y algodón",
-      image: "https://images.unsplash.com/photo-1771585655058-1772ec95b84b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhcnRpc2FuJTIwZmFicmljJTIwZmxvd2Vyc3xlbnwxfHx8fDE3NzMwODEwNzZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      image: f2,
       price: "$65",
     },
     {
       id: 3,
       title: "Margaritas de Fieltro",
       material: "Lana y fieltro",
-      image: "https://images.unsplash.com/photo-1772381943253-a88b52c09921?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmZWx0JTIwd29vbCUyMGZsb3dlcnMlMjBoYW5kbWFkZXxlbnwxfHx8fDE3NzMwODEwNzd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      image: f3,
       price: "$38",
       badge: "Nuevo",
     },
@@ -44,21 +78,21 @@ export default function App() {
       id: 4,
       title: "Origami Floral",
       material: "Papel washi",
-      image: "https://images.unsplash.com/photo-1731504802116-d0307730189c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxvcmlnYW1pJTIwZmxvd2VycyUyMGNvbG9yZnVsfGVufDF8fHx8MTc3MzA4MTA3N3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      image: f4,
       price: "$52",
     },
     {
       id: 5,
       title: "Flores de Cerámica",
       material: "Arcilla esmaltada",
-      image: "https://images.unsplash.com/photo-1725590249885-de0796581827?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjZXJhbWljJTIwZmxvd2VyJTIwc2N1bHB0dXJlfGVufDF8fHx8MTc3MzA4MTA3OHww&ixlib=rb-4.1.0&q=80&w=1080",
+      image: f5,
       price: "$120",
     },
     {
       id: 6,
       title: "Flores de Madera",
       material: "Madera tallada y pintada",
-      image: "https://images.unsplash.com/photo-1709993608773-b7b81f77f005?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3b29kZW4lMjBmbG93ZXIlMjBkZWNvcmF0aW9ufGVufDF8fHx8MTc3MzA4MTA3OHww&ixlib=rb-4.1.0&q=80&w=1080",
+      image: f6,
       price: "$95",
       badge: "Premium",
     },
@@ -66,11 +100,10 @@ export default function App() {
 
   const navLinks = [
     { href: "#catalogo", label: "Catálogo" },
-    { href: "#nosotros", label: "Nosotros" },
     { href: "#contacto", label: "Contacto" },
   ];
 
-  const whatsappUrl = "https://wa.me/1234567890?text=Hola!%20Me%20gustar%C3%ADa%20conocer%20m%C3%A1s%20sobre%20sus%20productos.";
+  const whatsappUrl = "https://wa.me/3115214011?text=Hola!%20Me%20gustar%C3%ADa%20conocer%20m%C3%A1s%20sobre%20sus%20productos.";
 
   return (
     <div className="min-h-screen bg-rosasuave">
@@ -93,6 +126,13 @@ export default function App() {
                 {link.label}
               </a>
             ))}
+            <button
+              type="button"
+              onClick={() => navigateTo("nosotros")}
+              className="text-neutral-600 transition-colors hover:text-rosaoscuro"
+            >
+              Nosotros
+            </button>
             <a
               href={whatsappUrl}
               target="_blank"
@@ -127,6 +167,13 @@ export default function App() {
                   {link.label}
                 </a>
               ))}
+              <button
+                type="button"
+                onClick={() => navigateTo("nosotros")}
+                className="text-left text-neutral-700 transition-colors hover:text-rosaoscuro"
+              >
+                Nosotros
+              </button>
               <a
                 href={whatsappUrl}
                 target="_blank"
@@ -191,103 +238,6 @@ export default function App() {
               Contáctanos para un diseño personalizado
             </a>
           </p>
-        </div>
-      </section>
-
-      {/* About Section */}
-      <section id="nosotros" className="bg-rosasuave py-16 md:py-24">
-        <div className="container mx-auto max-w-7xl px-6">
-          <div className="grid gap-12 md:grid-cols-2 md:items-center">
-            <div>
-              <p className="mb-2 text-sm text-rosaoscuro uppercase tracking-widest">
-                Nuestra historia
-              </p>
-              <h2 className="mb-4 text-rosaoscuro">Un emprendimiento hecho con pasión</h2>
-              <p className="mb-4 text-neutral-600">
-                Flores Artesanales nació del amor por la creatividad y el deseo de
-                ofrecer regalos que no se marchiten. Cada flor es elaborada a mano,
-                con dedicación y atención al detalle, para que cada pieza sea
-                especial y duradera.
-              </p>
-              <p className="mb-6 text-neutral-600">
-                Trabajamos con una amplia variedad de materiales —papel, tela,
-                fieltro, origami, cerámica y madera— para que encuentres la flor
-                perfecta para cada ocasión: cumpleaños, aniversarios, decoración del
-                hogar o simplemente para darte un gusto.
-              </p>
-
-              <div className="flex flex-col gap-4">
-                <div className="flex items-start gap-3">
-                  <div className="rounded-full bg-rosaclaro p-2">
-                    <Heart className="h-5 w-5 text-rosaoscuro" />
-                  </div>
-                  <div>
-                    <p className="font-semibold text-rosaoscuro">Hecho con amor</p>
-                    <p className="text-sm text-neutral-600">
-                      Cada flor lleva horas de trabajo y dedicación artesanal.
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <div className="rounded-full bg-rosaclaro p-2">
-                    <Sparkles className="h-5 w-5 text-rosaoscuro" />
-                  </div>
-                  <div>
-                    <p className="font-semibold text-rosaoscuro">Diseños únicos</p>
-                    <p className="text-sm text-neutral-600">
-                      Aceptamos pedidos personalizados con colores y materiales a tu elección.
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <div className="rounded-full bg-rosaclaro p-2">
-                    <Package className="h-5 w-5 text-rosaoscuro" />
-                  </div>
-                  <div>
-                    <p className="font-semibold text-rosaoscuro">Envíos seguros</p>
-                    <p className="text-sm text-neutral-600">
-                      Empacamos con cuidado para que llegue en perfecto estado a donde estés.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="grid grid-cols-2 gap-4">
-              <div className="space-y-4">
-                <div className="aspect-square overflow-hidden rounded-xl">
-                  <img
-                    src="https://images.unsplash.com/photo-1665953495580-c9a5a2a1759d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxoYW5kbWFkZSUyMHBhcGVyJTIwZmxvd2VycyUyMGNyYWZ0c3xlbnwxfHx8fDE3NzMwODEwNzZ8MA&ixlib=rb-4.1.0&q=80&w=1080"
-                    alt="Rosas de papel artesanales"
-                    className="h-full w-full object-cover"
-                  />
-                </div>
-                <div className="aspect-square overflow-hidden rounded-xl">
-                  <img
-                    src="https://images.unsplash.com/photo-1772381943253-a88b52c09921?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmZWx0JTIwd29vbCUyMGZsb3dlcnMlMjBoYW5kbWFkZXxlbnwxfHx8fDE3NzMwODEwNzd8MA&ixlib=rb-4.1.0&q=80&w=1080"
-                    alt="Margaritas de fieltro"
-                    className="h-full w-full object-cover"
-                  />
-                </div>
-              </div>
-              <div className="space-y-4 pt-8">
-                <div className="aspect-square overflow-hidden rounded-xl">
-                  <img
-                    src="https://images.unsplash.com/photo-1731504802116-d0307730189c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxvcmlnYW1pJTIwZmxvd2VycyUyMGNvbG9yZnVsfGVufDF8fHx8MTc3MzA4MTA3N3ww&ixlib=rb-4.1.0&q=80&w=1080"
-                    alt="Origami floral"
-                    className="h-full w-full object-cover"
-                  />
-                </div>
-                <div className="aspect-square overflow-hidden rounded-xl">
-                  <img
-                    src="https://images.unsplash.com/photo-1725590249885-de0796581827?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjZXJhbWljJTIwZmxvd2VyJTIwc2N1bHB0dXJlfGVufDF8fHx8MTc3MzA4MTA3OHww&ixlib=rb-4.1.0&q=80&w=1080"
-                    alt="Flores de cerámica"
-                    className="h-full w-full object-cover"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </section>
 
