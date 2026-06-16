@@ -13,7 +13,7 @@ export function FlowerCard({ title, material, image, price, badge }: FlowerCardP
   const whatsappMessage = encodeURIComponent(
     `Hola! Me interesa el producto: ${title} (${material}) - ${price}. ¿Está disponible?`
   );
-  const whatsappUrl = `https://wa.me/1234567890?text=${whatsappMessage}`;
+  const whatsappUrl = `https://wa.me/3115214011?text=${whatsappMessage}`;
 
   return (
     <div className="group relative overflow-hidden rounded-xl bg-rosasuave shadow-md transition-all hover:shadow-xl hover:-translate-y-1 duration-300">
@@ -39,7 +39,7 @@ export function FlowerCard({ title, material, image, price, badge }: FlowerCardP
             href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 rounded-lg bg-rosaoscuro px-4 py-2 text-sm text-white transition-colors hover:bg-rosapetalo"
+            className="inline-flex items-center gap-1.5 rounded-lg bg-rose-500 px-4 py-2 text-sm text-white transition-colors hover:bg-rosapetalo"
           >
             <MessageCircle className="h-4 w-4" />
             Consultar

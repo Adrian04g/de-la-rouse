@@ -6,6 +6,11 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['Graphik', 'sans-serif'],
+        serif: ['Merriweather', 'serif'],
+        cursive: ['"Pacifico"', 'cursive'],
+      },
       colors: {
         'rosasuave': '#ffd0d3',
         'rosaclaro': '#f0e0e3',

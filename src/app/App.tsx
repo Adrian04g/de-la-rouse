@@ -1,6 +1,8 @@
 import { Hero } from "./components/Hero";
 import { FlowerCard } from "./components/FlowerCard";
 import { AboutView } from "./components/AboutView";
+import { CatalogView } from "./components/CatalogView";
+import { flowers } from "./data/flowers";
 import {
   Flower2,
   Mail,
@@ -11,19 +13,15 @@ import {
 } from "lucide-react";
 import { useEffect, useState } from "react";
 
-import f1 from '../../img/f1.jpeg';
-import f2 from '../../img/f2.jpeg';
-import f3 from '../../img/f3.jpeg';
-import f4 from '../../img/f4.jpeg';
-import f5 from '../../img/f5.jpeg';
-import f6 from '../../img/f6.jpeg';
-
-type View = "home" | "nosotros";
+type View = "home" | "nosotros" | "catalogo";
 
 function getViewFromLocation(): View {
-  return new URLSearchParams(window.location.search).get("vista") === "nosotros"
-    ? "nosotros"
-    : "home";
+  const vista = new URLSearchParams(window.location.search).get("vista");
+  if (vista === "nosotros" || vista === "catalogo") {
+    return vista;
+  }
+
+  return "home";
 }
 
 export default function App() {
@@ -40,7 +38,7 @@ export default function App() {
   }, []);
 
   const navigateTo = (nextView: View) => {
-    const nextUrl = nextView === "nosotros" ? "/?vista=nosotros" : "/";
+    const nextUrl = nextView === "home" ? "/" : `/?vista=${nextView}`;
     window.history.pushState({}, "", nextUrl);
     setView(nextView);
     setMobileMenuOpen(false);
@@ -50,56 +48,11 @@ export default function App() {
     return <AboutView onGoHome={() => navigateTo("home")} />;
   }
 
-  const flowers = [
-    {
-      id: 1,
-      title: "Rosas de Papel",
-      material: "Papel crepé y alambre",
-      image: f1,
-      price: "$45",
-      badge: "Más vendido",
-    },
-    {
-      id: 2,
-      title: "Lirios de Tela",
-      material: "Seda y algodón",
-      image: f2,
-      price: "$65",
-    },
-    {
-      id: 3,
-      title: "Margaritas de Fieltro",
-      material: "Lana y fieltro",
-      image: f3,
-      price: "$38",
-      badge: "Nuevo",
-    },
-    {
-      id: 4,
-      title: "Origami Floral",
-      material: "Papel washi",
-      image: f4,
-      price: "$52",
-    },
-    {
-      id: 5,
-      title: "Flores de Cerámica",
-      material: "Arcilla esmaltada",
-      image: f5,
-      price: "$120",
-    },
-    {
-      id: 6,
-      title: "Flores de Madera",
-      material: "Madera tallada y pintada",
-      image: f6,
-      price: "$95",
-      badge: "Premium",
-    },
-  ];
+  if (view === "catalogo") {
+    return <CatalogView onGoHome={() => navigateTo("home")} />;
+  }
 
   const navLinks = [
-    { href: "#catalogo", label: "Catálogo" },
     { href: "#contacto", label: "Contacto" },
   ];
 
@@ -112,7 +65,7 @@ export default function App() {
         <div className="container mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
           <div className="flex items-center gap-2">
             <Flower2 className="h-6 w-6 text-rosaoscuro" />
-            <span className="font-semibold text-rosaoscuro">Flores Artesanales</span>
+            <span className="font-semibold font-cursive text-rosaoscuro">De la rose</span>
           </div>
 
           {/* Desktop nav */}
@@ -126,6 +79,13 @@ export default function App() {
                 {link.label}
               </a>
             ))}
+            <button
+              type="button"
+              onClick={() => navigateTo("catalogo")}
+              className="text-neutral-600 transition-colors hover:text-rosaoscuro"
+            >
+              Catálogo
+            </button>
             <button
               type="button"
               onClick={() => navigateTo("nosotros")}
@@ -167,6 +127,13 @@ export default function App() {
                   {link.label}
                 </a>
               ))}
+              <button
+                type="button"
+                onClick={() => navigateTo("catalogo")}
+                className="text-left text-neutral-700 transition-colors hover:text-rosaoscuro"
+              >
+                Catálogo
+              </button>
               <button
                 type="button"
                 onClick={() => navigateTo("nosotros")}
@@ -238,6 +205,16 @@ export default function App() {
               Contáctanos para un diseño personalizado
             </a>
           </p>
+
+          <div className="mt-8 text-center">
+            <button
+              type="button"
+              onClick={() => navigateTo("catalogo")}
+              className="inline-flex items-center gap-2 rounded-lg border-2 border-rosaoscuro bg-white px-6 py-3 text-rosaoscuro transition-colors hover:bg-rosaclaro"
+            >
+              Ver catálogo completo
+            </button>
+          </div>
         </div>
       </section>
 
