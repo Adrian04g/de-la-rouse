@@ -9,7 +9,7 @@ module.exports = {
       fontFamily: {
         sans: ['Graphik', 'sans-serif'],
         serif: ['Merriweather', 'serif'],
-        cursive: ['"Pacifico"', 'cursive'],
+        pacifico: ['Pacifico', 'cursive'],
       },
       colors: {
         'rosasuave': '#ffd0d3',

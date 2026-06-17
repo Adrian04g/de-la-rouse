@@ -13,12 +13,12 @@ export function FlowerCard({ title, material, image, price, badge }: FlowerCardP
   const whatsappMessage = encodeURIComponent(
     `Hola! Me interesa el producto: ${title} (${material}) - ${price}. ¿Está disponible?`
   );
-  const whatsappUrl = `https://wa.me/3115214011?text=${whatsappMessage}`;
+  const whatsappUrl = `https://wa.me/573224470254?text=${whatsappMessage}`;
 
   return (
     <div className="group relative overflow-hidden rounded-xl bg-rosasuave shadow-md transition-all hover:shadow-xl hover:-translate-y-1 duration-300">
       {badge && (
-        <div className="absolute top-3 left-3 z-10 flex items-center gap-1 rounded-full bg-rosaoscuro px-3 py-1 text-xs text-white shadow-sm">
+        <div className="absolute top-3 left-3 z-10 flex items-center gap-1 rounded-full bg-white px-3 py-1 text-xs text-red shadow-sm">
           <Tag className="h-3 w-3" />
           {badge}
         </div>

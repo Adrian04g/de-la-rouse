@@ -20,7 +20,7 @@ interface AboutViewProps {
 
 export function AboutView({ onGoHome }: AboutViewProps) {
   const whatsappUrl =
-    "https://wa.me/3115214011?text=Hola!%20Me%20gustar%C3%ADa%20conocer%20m%C3%A1s%20sobre%20sus%20productos.";
+    "https://wa.me/573224470254?text=Hola!%20Me%20gustar%C3%ADa%20conocer%20m%C3%A1s%20sobre%20sus%20productos.";
 
   return (
     <div className="min-h-screen bg-rosasuave">

@@ -2,7 +2,7 @@ import { Hero } from "./components/Hero";
 import { FlowerCard } from "./components/FlowerCard";
 import { AboutView } from "./components/AboutView";
 import { CatalogView } from "./components/CatalogView";
-import { flowers } from "./data/flowers";
+import { useFlowers } from "./data/useFlowers";
 import {
   Flower2,
   Mail,
@@ -27,6 +27,7 @@ function getViewFromLocation(): View {
 export default function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [view, setView] = useState<View>(() => getViewFromLocation());
+  const { flowers, loading, error } = useFlowers();
 
   useEffect(() => {
     const handlePopState = () => {
@@ -56,7 +57,7 @@ export default function App() {
     { href: "#contacto", label: "Contacto" },
   ];
 
-  const whatsappUrl = "https://wa.me/3115214011?text=Hola!%20Me%20gustar%C3%ADa%20conocer%20m%C3%A1s%20sobre%20sus%20productos.";
+  const whatsappUrl = "https://wa.me/573224470254?text=Hola!%20Me%20gustar%C3%ADa%20conocer%20m%C3%A1s%20sobre%20sus%20productos.";
 
   return (
     <div className="min-h-screen bg-rosasuave">
@@ -65,7 +66,7 @@ export default function App() {
         <div className="container mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
           <div className="flex items-center gap-2">
             <Flower2 className="h-6 w-6 text-rosaoscuro" />
-            <span className="font-semibold font-cursive text-rosaoscuro">De la rose</span>
+            <span className="font-pacifico text-xl font-semibold text-rosaoscuro">De la rose</span>
           </div>
 
           {/* Desktop nav */}
@@ -193,11 +194,21 @@ export default function App() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {flowers.map((flower) => (
-              <FlowerCard key={flower.id} {...flower} />
-            ))}
-          </div>
+          {loading ? (
+            <p className="rounded-xl border border-rosaoscuro/20 bg-white/70 px-4 py-6 text-center text-neutral-600">
+              Cargando catálogo...
+            </p>
+          ) : error ? (
+            <p className="rounded-xl border border-red-200 bg-red-50 px-4 py-6 text-center text-sm text-red-700">
+              {error}
+            </p>
+          ) : (
+            <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+              {flowers.map((flower) => (
+                <FlowerCard key={flower.id} {...flower} />
+              ))}
+            </div>
+          )}
 
           <p className="mt-8 text-center text-sm text-neutral-500">
             ¿No encuentras lo que buscas?{" "}
