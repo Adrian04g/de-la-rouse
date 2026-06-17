@@ -257,7 +257,7 @@ export default function App() {
               Enviar un correo
             </a> */}
             <a
-              href="https://instagram.com/floresartesanales"
+              href="https://www.instagram.com/dela.rosx"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-lg border-2 border-neutral-300 bg-white px-6 py-3 text-neutral-700 transition-colors hover:border-rosaoscuro hover:bg-rosaclaro"
@@ -281,7 +281,7 @@ export default function App() {
               © 2026 Flores Artesanales. Todos los derechos reservados.
             </p>
             <div className="flex gap-4">
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-neutral-400 hover:text-rosaoscuro transition-colors">
+              <a href="https://www.instagram.com/dela.rosx" target="_blank" rel="noopener noreferrer" className="text-neutral-400 hover:text-rosaoscuro transition-colors">
                 <Instagram className="h-5 w-5" />
               </a>
               <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="text-neutral-400 hover:text-emerald-600 transition-colors">
