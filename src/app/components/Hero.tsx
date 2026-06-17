@@ -16,13 +16,13 @@ export function Hero() {
             <span>Flores hechas con amor y dedicación</span>
           </div>
 
-          <h1 className="mb-4 bg-gradient-to-r from-rosaoscuro to-rosapetalo bg-clip-text text-transparent">
-            Flores Artesanales
+          <h1 className="mb-4 bg-gradient-to-r font-rosaoscuro font-cursive to-rosapetalo bg-clip-text text-black">
+            Flores artesanales que duran para siempre
           </h1>
 
           <p className="mx-auto mb-8 max-w-2xl text-lg text-neutral-600 md:text-xl">
             Creaciones únicas hechas a mano con los mejores materiales. Cada flor es
-            un regalo especial que dura para siempre, sin marchitarse jamás.
+            un regalo especial que dura para siempre.
           </p>
 
           <div className="flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
@@ -44,7 +44,7 @@ export function Hero() {
           <div className="mt-10 flex flex-wrap items-center justify-center gap-6 text-sm text-neutral-600">
             <span className="flex items-center gap-1.5">
               <span className="h-2 w-2 rounded-full bg-rosaoscuro"></span>
-              Envíos a todo el país
+              Envíos a todo el Atlantico
             </span>
             <span className="flex items-center gap-1.5">
               <span className="h-2 w-2 rounded-full bg-rosaoscuro"></span>

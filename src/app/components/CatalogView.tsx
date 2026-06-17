@@ -18,7 +18,7 @@ export function CatalogView({ onGoHome }: CatalogViewProps) {
         <div className="container mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
           <div className="flex items-center gap-2">
             <Flower2 className="h-6 w-6 text-rosaoscuro" />
-            <span className="font-semibold text-rosaoscuro">Flores Artesanales</span>
+            <span className="font-cursive text-2xl text-rosaoscuro">De la rose</span>
           </div>
 
           <div className="flex items-center gap-3">

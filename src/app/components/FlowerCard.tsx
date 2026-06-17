@@ -9,9 +9,20 @@ interface FlowerCardProps {
   badge?: string;
 }
 
+function formatPrice(price: string) {
+  const numericValue = Number(price.replace(/[^0-9]/g, ""));
+
+  if (!Number.isFinite(numericValue) || numericValue <= 0) {
+    return price;
+  }
+
+  return new Intl.NumberFormat("es-CO").format(numericValue);
+}
+
 export function FlowerCard({ title, material, image, price, badge }: FlowerCardProps) {
+  const formattedPrice = formatPrice(price);
   const whatsappMessage = encodeURIComponent(
-    `Hola! Me interesa el producto: ${title} (${material}) - ${price}. ¿Está disponible?`
+    `Hola! Me interesa el producto: ${title} (${material}) - COP $${formattedPrice}. ¿Está disponible?`
   );
   const whatsappUrl = `https://wa.me/573224470254?text=${whatsappMessage}`;
 
@@ -34,7 +45,7 @@ export function FlowerCard({ title, material, image, price, badge }: FlowerCardP
         <h3 className="mb-1 text-rosaoscuro">{title}</h3>
         <p className="mb-3 text-sm text-neutral-500">{material}</p>
         <div className="flex items-center justify-between gap-3">
-          <span className="font-semibold text-rosaoscuro text-lg">{price}</span>
+          <span className="text-lg font-semibold text-rosaoscuro">COP ${formattedPrice}</span>
           <a
             href={whatsappUrl}
             target="_blank"

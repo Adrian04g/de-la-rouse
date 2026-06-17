@@ -1,4 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Caveat:wght@400..700&display=swap');
+
 @import 'tailwindcss' source(none);
 @source '../**/*.{js,ts,jsx,tsx}';
+
+@theme {
+  --font-cursive: "Pacifico", "Brush Script MT", "Comic Sans MS", "Segoe Script", "Caveat", cursive;
+  --font-pacifico: "Pacifico", cursive;
+}
 
 @import 'tw-animate-css';

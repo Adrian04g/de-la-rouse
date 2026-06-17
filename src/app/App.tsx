@@ -66,7 +66,7 @@ export default function App() {
         <div className="container mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
           <div className="flex items-center gap-2">
             <Flower2 className="h-6 w-6 text-rosaoscuro" />
-            <span className="font-pacifico text-xl font-semibold text-rosaoscuro">De la rose</span>
+            <span className="font-cursive text-2xl text-rosaoscuro">De la rose</span>
           </div>
 
           {/* Desktop nav */}
@@ -163,17 +163,14 @@ export default function App() {
       {/* Stats bar */}
       <div className="border-y bg-rosasuave py-6">
         <div className="container mx-auto max-w-7xl px-6">
-          <div className="grid grid-cols-3 gap-4 text-center">
+          <div className="grid grid-cols-2 gap-4 text-center">
             <div>
-              <p className="text-2xl font-semibold text-rosa-oscuro">+200</p>
+              <p className="text-2xl font-semibold text-rosaoscuro">+50</p>
               <p className="text-sm text-neutral-500">Clientes felices</p>
             </div>
+            
             <div>
-              <p className="text-2xl font-semibold text-rosa-oscuro">6</p>
-              <p className="text-sm text-neutral-500">Tipos de materiales</p>
-            </div>
-            <div>
-              <p className="text-2xl font-semibold text-rosa-oscuro">100%</p>
+              <p className="text-2xl font-semibold text-rosaoscuro">100%</p>
               <p className="text-sm text-neutral-500">Hecho a mano</p>
             </div>
           </div>
@@ -252,13 +249,13 @@ export default function App() {
               <MessageCircle className="h-5 w-5" />
               Escribir por WhatsApp
             </a>
-            <a
+            {/* <a
               href="mailto:info@floresartesanales.com"
               className="inline-flex items-center gap-2 rounded-lg border-2 border-rosaoscuro bg-white px-6 py-3 text-rosaoscuro transition-colors hover:bg-rosaclaro"
             >
               <Mail className="h-5 w-5" />
               Enviar un correo
-            </a>
+            </a> */}
             <a
               href="https://instagram.com/floresartesanales"
               target="_blank"
@@ -278,7 +275,7 @@ export default function App() {
           <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
             <div className="flex items-center gap-2">
               <Flower2 className="h-5 w-5 text-rosaoscuro" />
-              <span className="font-semibold text-rosaoscuro">Flores Artesanales</span>
+              <span className="font-cursive text-xl text-rosaoscuro">De la rose</span>
             </div>
             <p className="text-sm text-neutral-500">
               © 2026 Flores Artesanales. Todos los derechos reservados.
@@ -290,9 +287,9 @@ export default function App() {
               <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="text-neutral-400 hover:text-emerald-600 transition-colors">
                 <MessageCircle className="h-5 w-5" />
               </a>
-              <a href="mailto:info@floresartesanales.com" className="text-neutral-400 hover:text-emerald-600 transition-colors">
+              {/* <a href="mailto:info@floresartesanales.com" className="text-neutral-400 hover:text-emerald-600 transition-colors">
                 <Mail className="h-5 w-5" />
-              </a>
+              </a> */}
             </div>
           </div>
         </div>
