@@ -65,7 +65,11 @@ export default function App() {
       <nav className="sticky top-0 z-40 border-b bg-rosasuave/90 backdrop-blur-sm shadow-sm">
         <div className="container mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
           <div className="flex items-center gap-2">
-            <Flower2 className="h-6 w-6 text-rosaoscuro" />
+            <img
+              src="/img/logo.png"
+              alt="Logo de De la rose"
+              className="h-14 w-14 rounded-full object-cover"
+            />
             <span className="font-cursive text-2xl text-rosaoscuro">De la rose</span>
           </div>
 
@@ -274,7 +278,11 @@ export default function App() {
         <div className="container mx-auto max-w-7xl px-6">
           <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
             <div className="flex items-center gap-2">
-              <Flower2 className="h-5 w-5 text-rosaoscuro" />
+              <img
+              src="/img/logo.png"
+              alt="Logo de De la rose"
+              className="h-14 w-14 rounded-full object-cover"
+            />
               <span className="font-cursive text-xl text-rosaoscuro">De la rose</span>
             </div>
             <p className="text-sm text-neutral-500">

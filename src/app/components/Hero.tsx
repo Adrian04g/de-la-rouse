@@ -8,7 +8,11 @@ export function Hero() {
       <div className="container relative mx-auto max-w-7xl px-6">
         <div className="text-center">
           <div className="mb-6 inline-flex items-center justify-center rounded-full bg-rosaclaro p-4">
-            <Flower2 className="h-12 w-12 text-rosaoscuro" />
+            <img
+              src="/img/logo.png"
+              alt="Logo de De la rose"
+              className="h-16 w-16 rounded-full object-cover"
+            />
           </div>
 
           <div className="mb-3 inline-flex items-center gap-1 rounded-full bg-rosaclaro px-4 py-1 text-sm text-rosaoscuro">
