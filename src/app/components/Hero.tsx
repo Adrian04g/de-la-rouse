@@ -1,5 +1,5 @@
 import { Flower2, ShoppingBag, Star } from "lucide-react";
-import logo from "../../img/logo.png";
+import logo from "../../../img/logo.png";
 
 export function Hero() {
   return (
