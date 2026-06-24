@@ -12,7 +12,7 @@ import {
   X,
 } from "lucide-react";
 import { useEffect, useState } from "react";
-import logo from "../../../img/logo.png";
+import logo from "../../img/logo.png";
 
 type View = "home" | "nosotros" | "catalogo";
 
@@ -67,7 +67,7 @@ export default function App() {
         <div className="container mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
           <div className="flex items-center gap-2">
             <img
-              src="https://drive.google.com/file/d/1AuKpOlTDRnezLhmlql5DbPUjfdYKc6pc/view?usp=sharing"
+              src={logo}
               alt="Logo de De la rose"
               className="h-14 w-14 rounded-full object-cover"
             />
