@@ -1,4 +1,5 @@
 import { Flower2, ShoppingBag, Star } from "lucide-react";
+import logo from "../../img/logo.png";
 
 export function Hero() {
   return (
@@ -9,7 +10,7 @@ export function Hero() {
         <div className="text-center">
           <div className="mb-6 inline-flex items-center justify-center rounded-full bg-rosaclaro p-4">
             <img
-              src="/img/logo.png"
+              src={logo}
               alt="Logo de De la rose"
               className="h-16 w-16 rounded-full object-cover"
             />
