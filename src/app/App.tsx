@@ -66,7 +66,7 @@ export default function App() {
         <div className="container mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
           <div className="flex items-center gap-2">
             <img
-              src="https://de-la-rouse.vercel.app/img/logo.png"
+              src="https://drive.google.com/file/d/1AuKpOlTDRnezLhmlql5DbPUjfdYKc6pc/view?usp=sharing"
               alt="Logo de De la rose"
               className="h-14 w-14 rounded-full object-cover"
             />
@@ -279,7 +279,7 @@ export default function App() {
           <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
             <div className="flex items-center gap-2">
               <img
-              src="https://de-la-rouse.vercel.app/img/logo.png"
+              src="https://drive.google.com/file/d/1AuKpOlTDRnezLhmlql5DbPUjfdYKc6pc/view?usp=sharing"
               alt="Logo de De la rose"
               className="h-14 w-14 rounded-full object-cover"
             />
